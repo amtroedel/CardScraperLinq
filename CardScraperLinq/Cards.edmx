@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="mtgpeertrader_testModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="mtgpeertrader_testModelStoreContainer">
+          <EntitySet Name="magiccards" EntityType="mtgpeertrader_testModel.Store.magiccards" store:Type="Tables" Schema="mtgpeertrader_test" />
+        </EntityContainer>
+        <EntityType Name="magiccards">
+          <Key>
+            <PropertyRef Name="IdMagicCards" />
+          </Key>
+          <Property Name="IdMagicCards" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="fk_IdMagicCardExpansion" Type="tinyint" Nullable="false" />
+          <Property Name="CardName" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="ManaCost" Type="varchar" MaxLength="45" />
+          <Property Name="ConvertedManaCost" Type="tinyint" />
+          <Property Name="Types" Type="varchar" MaxLength="100" />
+          <Property Name="CardText" Type="varchar" MaxLength="500" />
+          <Property Name="FlavorText" Type="varchar" MaxLength="500" />
+          <Property Name="PT" Type="varchar" MaxLength="10" />
+          <Property Name="Loyalty" Type="varchar" MaxLength="45" />
+          <Property Name="Rarity" Type="varchar" MaxLength="20" />
+          <Property Name="CardNumber" Type="int" />
+          <Property Name="Artist" Type="varchar" MaxLength="45" />
+          <Property Name="GathererMultiverseID" Type="int" />
+          <Property Name="Variation" Type="tinyint" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="mtgpeertrader_testModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="mtgpeertrader_testEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="magiccards" EntityType="mtgpeertrader_testModel.magiccard" />
+        </EntityContainer>
+        <EntityType Name="magiccard">
+          <Key>
+            <PropertyRef Name="IdMagicCards" />
+          </Key>
+          <Property Name="IdMagicCards" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fk_IdMagicCardExpansion" Type="SByte" Nullable="false" />
+          <Property Name="CardName" Type="String" Nullable="false" />
+          <Property Name="ManaCost" Type="String" />
+          <Property Name="ConvertedManaCost" Type="SByte" />
+          <Property Name="Types" Type="String" />
+          <Property Name="CardText" Type="String" />
+          <Property Name="FlavorText" Type="String" />
+          <Property Name="PT" Type="String" />
+          <Property Name="Loyalty" Type="String" />
+          <Property Name="Rarity" Type="String" />
+          <Property Name="CardNumber" Type="Int32" />
+          <Property Name="Artist" Type="String" />
+          <Property Name="GathererMultiverseID" Type="Int32" />
+          <Property Name="Variation" Type="SByte" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="mtgpeertrader_testModelStoreContainer" CdmEntityContainer="mtgpeertrader_testEntities">
+          <EntitySetMapping Name="magiccards"><EntityTypeMapping TypeName="mtgpeertrader_testModel.magiccard"><MappingFragment StoreEntitySet="magiccards">
+            <ScalarProperty Name="IdMagicCards" ColumnName="IdMagicCards" />
+            <ScalarProperty Name="fk_IdMagicCardExpansion" ColumnName="fk_IdMagicCardExpansion" />
+            <ScalarProperty Name="CardName" ColumnName="CardName" />
+            <ScalarProperty Name="ManaCost" ColumnName="ManaCost" />
+            <ScalarProperty Name="ConvertedManaCost" ColumnName="ConvertedManaCost" />
+            <ScalarProperty Name="Types" ColumnName="Types" />
+            <ScalarProperty Name="CardText" ColumnName="CardText" />
+            <ScalarProperty Name="FlavorText" ColumnName="FlavorText" />
+            <ScalarProperty Name="PT" ColumnName="PT" />
+            <ScalarProperty Name="Loyalty" ColumnName="Loyalty" />
+            <ScalarProperty Name="Rarity" ColumnName="Rarity" />
+            <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+            <ScalarProperty Name="Artist" ColumnName="Artist" />
+            <ScalarProperty Name="GathererMultiverseID" ColumnName="GathererMultiverseID" />
+            <ScalarProperty Name="Variation" ColumnName="Variation" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Cards">
+        <EntityTypeShape EntityType="mtgpeertrader_testModel.magiccard" Width="1.5" PointX="0.75" PointY="0.75" Height="3.9033007812499996" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
